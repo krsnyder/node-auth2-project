@@ -17,8 +17,8 @@ const { restricted, only } = require("../auth/auth-middleware.js");
     }
   ]
  */
-router.get("/", restricted, (req, res, next) => { // done for you
-  Users.find()
+router.post("/", restricted, (req, res, next) => { // done for you
+  Users.findBy({username: req.body.username})
     .then(users => {
       console.log(users)
       res.json(users);
