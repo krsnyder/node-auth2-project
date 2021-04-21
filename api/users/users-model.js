@@ -20,6 +20,7 @@ function findById(user_id) {
   .select('u.user_id', 'u.username', 'r.role_name')
   .leftJoin('roles as r', 'r.role_id', '=', 'u.role_id')
   .orderBy("user_id")
+  .first()
 }
 
 /**
